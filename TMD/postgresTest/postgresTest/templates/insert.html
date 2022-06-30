@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DBMS Lab 10 Project Toy Manufacturing Database</title>
+</head>
+<body>
+    <center>
+        <h1>Insert record in PostgreSQL</h1>
+        <h3>Hello all</h3>
+        <hr/>
+        <form method="POST">
+            {% csrf_token %}
+        <table border="1">
+            <tr>
+                <td>Toy ID</td>
+                <td><input type="number" placeholder="Enter the Toy id" name="toy_id"></td>
+            </tr>
+            <tr>
+                <td>Toy Name</td>
+                <td><input type="text" placeholder="Enter Toy Name" name="toy_name"></td>
+            </tr>
+            <tr>
+                <td>Manufacturer ID</td>
+                <td><input type="number" placeholder="Enter Manufacturer ID" name="manufacturer_id"></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><input type="number" placeholder="Enter the Price" name="price"></td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td><input type="number" placeholder="Enter Quantity of the toy" name="quantity"></td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td><input type="text" placeholder="Enter Country" name="country"></td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td><input type="text" placeholder="Enter the Country" name="category"></td>
+            </tr>
+            <tr>
+                <td>Raw Material</td>
+                <td><input type="text" placeholder="Enter Raw Material" name="raw_material"></td>
+            </tr>
+            <tr>
+                <td>Color</td>
+                <td><input type="text" placeholder="Enter color of the toy" name="color"></td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="Insert" ></td>
+                <td>
+                    {% if messages %}
+                    {% for mess in messages %}
+                    <b>{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        <a href="{% url 'showinv' %}">Home page</a>
+
+
+        </form>
+    </center>
+</body>
+</html>

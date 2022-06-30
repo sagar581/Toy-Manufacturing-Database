@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DBMS Lab 10 Project Toy manufacturing database</title>
+    <style>
+        body  {
+          background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?size=626&ext=.jpg");
+        }
+        </style>
+</head>
+<body >
+
+
+    <center>
+        <h1 style="font-size:30px;">DBMS LAB-10 Front-End Development</h1>
+        <h3 style="font-size:25px;">Inventory's Data of Toy Manufacturing Database:</h3>
+        <hr/>
+        <a href="{% url 'insertinv' %}"> <b style="color: blue; font-size:20px;">[ Create New Entry in Inventory ]</b> </a>
+        <hr/>
+
+        <table border="1">
+            <tr>
+                <th>toy id</th>
+                <th>toy name</th>
+                <th>manufacturer id</th>
+                <th>price</th>
+                <th>quantity</th>
+                <th>country</th>
+                <th>category</th>
+                <th>raw Material</th>
+                <th>color</th>
+            </tr>
+
+            {% for results in data %}
+            <tr>
+                <td>{{results.toy_id}}</td>
+                <td>{{results.toy_name}}</td>
+                <td>{{results.manufacturer_id}}</td>
+                <td>{{results.price}}</td>
+                <td>{{results.quantity}}</td>
+                <td>{{results.country}}</td>
+                <td>{{results.category}}</td>
+                <td>{{results.raw_material}}</td>
+                <td>{{results.color}}</td>
+
+                <td><a href="edit/{{results.toy_id}}">Edit</a></td>
+                <td><a href="delete/{{results.toy_id}}" onclick="return confirm('Are you sure want to delete?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+
+
+        </table>
+    </center>
+
+
+</body>
+</html>
+

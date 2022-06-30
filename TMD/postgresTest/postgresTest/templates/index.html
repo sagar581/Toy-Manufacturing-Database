@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DBMS Lab 10 Project Toy manufacturing database</title>
+   <style>
+        <Body background="C:\Users\sbcha\Downloads\aa.jpg">
+        </style>
+
+</head>
+<body >
+
+
+    <center>
+        <h1>How to create Web app using PostgreSQL</h1>
+        <h3 style="color: red;">Hello all</h3>
+        <hr/>
+        <a href="{% url 'insertinv' %}">Create New Entry in Inventory</a>
+        <hr/>
+
+        <table border="1">
+            <tr>
+                <th>Toy id</th>
+                <th>Toy name</th>
+                <th>manufacturer id</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Country</th>
+                <th>Category</th>
+                <th>Raw Material</th>
+                <th>color</th>
+            </tr>
+
+            {% for results in data %}
+            <tr>
+                <td>{{results.toy_id}}</td>
+                <td>{{results.toy_name}}</td>
+                <td>{{results.manufacturer_id}}</td>
+                <td>{{results.price}}</td>
+                <td>{{results.quantity}}</td>
+                <td>{{results.country}}</td>
+                <td>{{results.category}}</td>
+                <td>{{results.raw_material}}</td>
+                <td>{{results.color}}</td>
+
+
+            </tr>
+            {% endfor %}
+
+
+        </table>
+    </center>
+
+
+</body>
+</html>
+

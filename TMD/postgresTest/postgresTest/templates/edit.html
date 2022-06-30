@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DBMS Lab 10 Project Toy Manufacturing Database</title>
+</head>
+<body>
+    <center>
+        <h1>Edit Web app using PostgreSQL</h1>
+        <h3 style="color: red;">Hello all</h3>
+        <hr/>
+        <form method="POST" action="/update/{{InventoryModel.toy_id}}">
+            {% csrf_token %}
+
+
+        <table border="1">
+            <tr>
+                <td>Toy ID</td>
+                <td><input type="number" name="toy_id" value="{{InventoryModel.toy_id}}"></td>
+            </tr>
+
+            <tr>
+                <td>Toy Name</td>
+                <td><input type="text" name="toy_name" value="{{InventoryModel.toy_name}}"></td>
+            </tr>
+
+            <tr>
+                <td>Manufacturer ID</td>
+                <td><input type="number" name="manufacturer_id" value="{{InventoryModel.manufacturer_id}}"></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><input type="number" name="price" value="{{InventoryModel.price}}"></td>
+            </tr>
+
+            <tr>
+                <td>Quantity</td>
+                <td><input type="number" name="quantity" value="{{InventoryModel.quantity}}"></td>
+            </tr>
+
+            <tr>
+                <td>Country</td>
+                <td><input type="text" name="country" value="{{InventoryModel.country}}"></td>
+            </tr>
+
+            <tr>
+                <td>Category</td>
+                <td><input type="text" name="category" value="{{InventoryModel.category}}"></td>
+            </tr>
+
+            <tr>
+                <td>Raw Material</td>
+                <td><input type="text" name="raw_material" value="{{InventoryModel.raw_material}}"></td>
+            </tr>
+
+            <tr>
+                <td>Color</td>
+                <td><input type="text" name="color" value="{{InventoryModel.color}}"></td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="Update Record"></td>
+                <td>
+                    {% if messages %}
+                    {% for mess in messages %}
+                    <b style="color:green;">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+
+
+
+        </table>
+        <a href="{% url 'showinv' %}">Go to Home</a>
+    </form>
+    </center>
+</body>
+</html>
